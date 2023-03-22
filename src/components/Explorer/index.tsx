@@ -1,9 +1,7 @@
 import {
-  Code2,
   Cog,
   Cpu,
   FileJson,
-  Film,
   Joystick,
   MoreHorizontal,
   Terminal,
@@ -42,22 +40,18 @@ export const explorerFiles: Record<string, FileType> = {
 export function Explorer() {
   return (
     <div className="py-2 px-4 text-[#8F8CA8]">
-      <strong className="font-medium text-xs pl-2 flex items-center justify-between">
-        EXPLORER
+      <strong className="font-medium text-xs pl-2 flex items-center justify-between uppercase">
+        Explorer
         <MoreHorizontal size={16} strokeWidth={1.5} />
       </strong>
 
       <nav className="mt-4 flex flex-col">
-        <SubMenu title="OPEN EDITORS">
+        <SubMenu title="Open Editors">
           <OpenFilesSubMenu />
         </SubMenu>
 
-        <SubMenu defaultOpen title="FALA-DEV">
+        <SubMenu defaultOpen title="Project">
           <Folder defaultOpen title="Visual Studio Code">
-            {/* <File href="/vscode/general">
-            <Code2 size={16} />
-            General
-            </File> */}
             <File href="/vscode/settings">
               <FileJson size={16} />
               settings.json

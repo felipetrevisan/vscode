@@ -7,12 +7,35 @@ code {
   counter-increment: step 0;
 }
 
+:root {
+  --shiki-color-text: #F8F8F2;
+  --shiki-color-background: rgba(#282A36, .4);
+  --shiki-token-constant: #BD93F9;
+  --shiki-token-string: #8BE9FD;
+  --shiki-token-comment: #6e7781;
+  --shiki-token-keyword: #8BE9FD;
+  --shiki-token-parameter: #24292f;
+  --shiki-token-function: #8250df;
+  --shiki-token-string-expression: #F1FA8C;
+  --shiki-token-punctuation: #FF79C6;
+  --shiki-token-link: #000012;
+}
+
 code .line::before {
   content: counter(step);
   counter-increment: step;
   width: 1rem;
   margin-right: 1.5rem;
+  margin-left: 1.5rem;
   display: inline-block;
   text-align: right;
-  color: #8F8CA8;
+  color: #BD93F9;
+}
+
+pre.shiki {
+  @apply h-full !bg-black/20
+}
+
+.tabs::-webkit-scrollbar {
+  @apply hidden
 }

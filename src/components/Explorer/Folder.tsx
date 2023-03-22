@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { ChevronDown, ChevronRight, Folder as FolderIcon } from "lucide-react";
@@ -6,12 +6,12 @@ import { ReactNode, useState } from "react";
 
 interface FolderProps {
   title: string;
-  children: ReactNode
-  defaultOpen?: boolean
+  children: ReactNode;
+  defaultOpen?: boolean;
 }
 
 export function Folder({ title, children, defaultOpen = false }: FolderProps) {
-  const [isOpen, setIsOpen] = useState(defaultOpen)
+  const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
     <Collapsible.Root open={isOpen} onOpenChange={setIsOpen}>
@@ -23,9 +23,7 @@ export function Folder({ title, children, defaultOpen = false }: FolderProps) {
         <span className="text-sm">{title}</span>
       </Collapsible.Trigger>
 
-      <Collapsible.Content>
-        {children}
-      </Collapsible.Content>
+      <Collapsible.Content>{children}</Collapsible.Content>
     </Collapsible.Root>
-  )
+  );
 }

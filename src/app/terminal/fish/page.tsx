@@ -5,16 +5,27 @@ import shiki from 'shiki'
 
 export const revalidate = 1800 // revalidate every 30 minutes
 export const metadata = {
-  title: 'Fish',
-}
+  title: "Fish",
+};
+
+// const fishConfig = `if status is-interactive
+// # Commands to run in interactive sessions can go here
+// end
+
+// set SPACEFISH_PROMPT_ADD_NEWLINE false
+
+// starship init fish | source
+
+// # Aliases
+// # alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"`;
 
 export default async function FishConfig() {
   const { terminal_fish } = await getNotionPagesId()
   const { content } = await getCodeBlockFromNotion(terminal_fish)
 
   const highlighter = await shiki.getHighlighter({
-    theme: 'rose-pine-moon',
-  })
+    theme: process.env.NEXT_PUBLIC_EDITOR_THEME,
+  });
 
   const code = highlighter.codeToHtml(content, { lang: 'fish' })
 
